@@ -1,0 +1,35 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "27.0.1"
+    defaultConfig {
+        applicationId "com.example.administrator.demo05"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    //非官方zxing方案
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+    //ButterKnife 依赖注入
+    compile 'com.jakewharton:butterknife:8.4.0'
+    //解决6.0后动态请求权限问题
+    compile 'pub.devrel:easypermissions:1.0.1'
+}
